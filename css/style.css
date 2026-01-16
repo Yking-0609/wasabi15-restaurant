@@ -632,91 +632,112 @@ footer {
 
 
 /* ===================== NAVBAR ===================== */
+/* ===================== NAVBAR (unified + mobile hamburger) ===================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background: rgba(30,30,30,0.85);
-    backdrop-filter: blur(10px);
+    padding: 15px 5vw;                /* responsive side padding */
+    background: #fff;                 /* ← change to your preferred bg (was #fff in most rules) */
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-.navbar .logo img {
-    height: 50px;
+.logo img {
+    height: 55px;
+    width: auto;
 }
 
-.nav-links ul {
+.nav-links {
     display: flex;
-    gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
+    gap: 30px;
 }
 
-.nav-links ul li a {
-    display: block;
-    padding: 8px 16px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.1);
-    color: #fff;
+.nav-links a {
     text-decoration: none;
-    transition: all 0.3s ease;
-    white-space: nowrap;
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.nav-links ul li a:hover {
-    background: rgba(255,255,255,0.25);
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--green);
 }
 
-html, body {
-    overflow-x: hidden;
-}
-
-/* Hamburger styling */
+/* Hamburger */
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
-    gap: 5px;
 }
 
 .hamburger span {
-    display: block;
-    width: 25px;
+    width: 100%;
     height: 3px;
-    background: #fff;
+    background: var(--dark);
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
-/* ===================== MOBILE ===================== */
+/* Mobile behavior */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
 
     .nav-links {
+        display: none;                    /* hide horizontal links */
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        display: none; /* hidden by default */
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
 
     .nav-links.active {
-        display: block;
-        background: rgba(30,30,30,0.95);
+        display: flex;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
         padding: 10px 0;
     }
 
-    .nav-links ul {
-        flex-direction: column; /* stack vertically */
-        gap: 10px;
-        padding-left: 0;
-        text-align: center;
+    .navbar {
+        padding: 12px 5vw;               /* slightly more compact */
     }
 
-    .nav-links ul li a {
-        padding: 10px 0;
-        font-size: 16px;
+    .logo img {
+        height: 48px;
     }
+}
+
+/* Optional: X animation for hamburger when open */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }

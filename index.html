@@ -16,32 +16,27 @@
 </head>
 <body>
 
-<header class="navbar">
-  <!-- Logo -->
-  <div class="logo">
-    <a href="index.html">
-      <img src="images/logo.png" alt="Wasabi15 Logo">
-    </a>
-  </div>
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Wasabi15">   <!-- ← change "logo.png" to your actual logo filename if different -->
+        </a>
+    </div>
 
-  <!-- Hamburger button for mobile -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Navigation links -->
-  <nav class="nav-links">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
     </ul>
-  </nav>
-</header>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
 
 <!-- HERO -->
 <section class="hero">
@@ -89,10 +84,25 @@
 </script>
 
 <script>
-function toggleMenu() {
-  const nav = document.querySelector('.nav-links');
-  nav.classList.toggle('active');
-}
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link (better UX)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    });
 </script>
 
 

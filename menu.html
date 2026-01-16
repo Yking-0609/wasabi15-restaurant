@@ -16,31 +16,27 @@
 </head>
 <body>
 
-<header class="header">
-  <div class="container">
-    <a href="index.html" class="logo">
-      <!-- Your logo image or text -->
-      <img src="images/logo.png" alt="Wasabi15" /> <!-- adjust path -->
-      <!-- OR just text: Wasabi15 -->
-    </a>
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/logo.png" alt="Wasabi15">   <!-- ← change "logo.png" to your actual logo filename if different -->
+        </a>
+    </div>
 
-    <button class="hamburger" aria-label="Toggle menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="nav-menu">
-      <ul>
+    <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="menu.html">Menu</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    </ul>
+
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
 
 <!-- ===== PAGE HEADER ===== -->
 <section class="page-header menu-header">
@@ -108,12 +104,26 @@
 </script>
 
 <script>
-function toggleMenu() {
-  const nav = document.querySelector('.nav-links');
-  nav.classList.toggle('active');
-}
-</script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link (better UX)
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
+    });
+</script>
 
 
 </body>
