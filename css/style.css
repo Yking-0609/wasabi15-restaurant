@@ -741,3 +741,73 @@ footer {
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
+
+/* Mobile: Horizontal full-width menu layout */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;                    /* hidden until active */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;                 /* or rgba(255,255,255,0.98) for semi-transparent */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        padding: 20px 10px;
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: row;              /* ← horizontal row */
+        flex-wrap: wrap;                  /* wrap to next line if needed */
+        justify-content: center;          /* center items horizontally */
+        align-items: center;
+        gap: 20px 30px;                   /* space between items */
+    }
+
+    .nav-links li {
+        flex: 0 1 auto;                   /* let items size naturally */
+        min-width: 120px;                 /* prevent too narrow on small screens */
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 1.1rem;
+        padding: 12px 20px;
+        border-radius: 30px;
+        background: rgba(30,127,92,0.08); /* subtle bg using your --green */
+        transition: all 0.3s;
+        white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+        background: var(--green);
+        color: white;
+    }
+
+    /* If you add images/icons to menu items later */
+    .nav-links img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 8px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Optional: Make navbar more compact so menu opens without scroll issues */
+    .navbar {
+        padding: 12px 5vw;
+    }
+
+    .logo img {
+        height: 48px;
+    }
+}
