@@ -631,81 +631,81 @@ footer {
 }
 
 /* ================== NAVBAR ================== */
+/* ================= NAVBAR (CLEAN & FIXED) ================= */
+
 .navbar {
-  display: flex;
-  justify-content: space-between; /* logo left, hamburger right */
-  align-items: center;
-  padding: 10px 20px;
-  background: rgba(30,30,30,0.85);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar .logo img {
-  height: 50px;
+/* LOGO */
+.logo img {
+    height: 48px;
 }
 
-/* =========================================================
-   FINAL NAVBAR FIX — OVERRIDES ALL PREVIOUS CONFLICTS
-   ========================================================= */
-
-/* DEFAULT (DESKTOP) */
-.nav-links {
-    display: block;
-    position: static;
-    background: transparent;
-    box-shadow: none;
-}
-
+/* NAV LINKS (DESKTOP) */
 .nav-links ul {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 30px;
+    gap: 28px;
+    list-style: none;
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+}
+
+/* HAMBURGER */
 .hamburger {
     display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
 }
 
 /* ================= MOBILE ================= */
-@media (max-width: 900px) {
+@media (max-width: 768px) {
 
-    /* Navbar layout */
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
     }
 
-    /* Hide links by default */
+    /* Hide menu initially */
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
-        right: 20px;
+        top: 65px;
+        right: 16px;
         background: #fff;
-        padding: 16px 20px;
+        padding: 14px 18px;
         border-radius: 10px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        z-index: 1000;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
 
     .nav-links.active {
         display: block;
     }
 
-    /* Vertical menu only on mobile */
     .nav-links ul {
         flex-direction: column;
         align-items: flex-end;
-        gap: 16px;
-    }
-
-    /* Hamburger visible */
-    .hamburger {
-        display: flex;
+        gap: 14px;
     }
 }
