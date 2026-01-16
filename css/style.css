@@ -633,13 +633,13 @@ footer {
 
 /* ===================== NAVBAR - RESPONSIVE & MODERN ===================== */
 
-/* ===================== NAVBAR ===================== */
+/* Navbar general */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: rgba(30, 30, 30, 0.85);
+    background: rgba(30,30,30,0.85);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
@@ -662,7 +662,7 @@ footer {
     display: block;
     padding: 8px 16px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.1);
     color: #fff;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -670,14 +670,14 @@ footer {
 }
 
 .nav-links ul li a:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255,255,255,0.25);
 }
 
 html, body {
     overflow-x: hidden;
 }
 
-/* Hamburger */
+/* Hamburger styling */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -693,7 +693,7 @@ html, body {
     border-radius: 2px;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE STYLES */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -701,19 +701,18 @@ html, body {
 
     .nav-links {
         width: 100%;
-        display: none; /* hidden by default */
+        display: none; /* hide by default */
     }
 
     .nav-links.active {
-        display: block;
-        background: rgba(30, 30, 30, 0.95);
+        display: block; /* show when hamburger clicked */
+        background: rgba(30,30,30,0.95);
         padding: 10px 0;
     }
 
     .nav-links ul {
         flex-direction: column; /* stack vertically */
         gap: 10px;
-        padding-left: 0;
         text-align: center;
     }
 
@@ -722,4 +721,3 @@ html, body {
         font-size: 16px;
     }
 }
-

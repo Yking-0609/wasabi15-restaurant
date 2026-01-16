@@ -14,15 +14,6 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-
-<script>
-function toggleMenu() {
-  const nav = document.querySelector('.nav-links');
-  nav.classList.toggle('active');
-}
-</script>
-
-
 <body>
 
 <!-- NAVBAR -->
@@ -33,7 +24,7 @@ function toggleMenu() {
     </a>
   </div>
 
-  <!-- Hamburger button -->
+  <!-- Hamburger button for mobile -->
   <div class="hamburger" onclick="toggleMenu()">
     <span></span>
     <span></span>
@@ -50,6 +41,7 @@ function toggleMenu() {
     </ul>
   </nav>
 </header>
+
 
 
 <!-- HERO -->
@@ -96,6 +88,14 @@ function toggleMenu() {
 <script>
     AOS.init({ duration: 1000, once: true });
 </script>
+
+<script>
+function toggleMenu() {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('active');
+}
+</script>
+
 
 </body>
 </html>
