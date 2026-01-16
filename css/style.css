@@ -647,83 +647,65 @@ footer {
   height: 50px;
 }
 
-/* Desktop links */
-.nav-links ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+/* =========================================================
+   FINAL NAVBAR FIX — OVERRIDES ALL PREVIOUS CONFLICTS
+   ========================================================= */
 
-.nav-links ul li a {
-  display: block;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.1);
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.nav-links ul li a:hover {
-  background: rgba(255,255,255,0.25);
-}
-
-/* Hamburger button */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-
-  .hamburger {
-    display: flex;
-  }
-
-  /* Hide nav by default */
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 60px;          /* below the navbar / hamburger */
-    right: 20px;        /* aligned under hamburger */
-    background: rgba(30,30,30,0.95);
-    padding: 10px 20px;
-    border-radius: 8px;
-    z-index: 999;
-    width: max-content;
-    text-align: right;
-  }
-
-  .nav-links.active {
+/* DEFAULT (DESKTOP) */
+.nav-links {
     display: block;
-  }
+    position: static;
+    background: transparent;
+    box-shadow: none;
+}
 
-  /* Stack links vertically, right-aligned */
-  .nav-links ul {
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-  }
+.nav-links ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+}
 
-  .nav-links ul li a {
-    padding: 8px 0;
-    font-size: 16px;
-  }
+.hamburger {
+    display: none;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 900px) {
+
+    /* Navbar layout */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Hide links by default */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        background: #fff;
+        padding: 16px 20px;
+        border-radius: 10px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    /* Vertical menu only on mobile */
+    .nav-links ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 16px;
+    }
+
+    /* Hamburger visible */
+    .hamburger {
+        display: flex;
+    }
 }
