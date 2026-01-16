@@ -28,14 +28,12 @@
     </a>
   </div>
 
-  <div class="hamburger-container">
-    <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</div>
-
+  <!-- Hamburger for mobile -->
+  <button class="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
   <!-- Navigation links -->
   <nav class="nav-links">
@@ -148,11 +146,17 @@ center/cover no-repeat;
 </script>
 
 <script>
-function toggleMenu() {
-  const nav = document.querySelector('.nav-links');
-  nav.classList.toggle('active');
-}
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  
+  // Optional: animate hamburger into X
+  hamburger.classList.toggle('open');
+});
 </script>
+
 
 
 </body>
