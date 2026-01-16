@@ -693,47 +693,58 @@ html, body {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
     .navbar {
-        justify-content: space-between; /* logo left, hamburger right */
-    }
-
-    .hamburger {
-        display: flex;
-        order: 2; /* always right */
+        display: flex !important;
+        justify-content: space-between !important; /* logo left, hamburger right */
+        align-items: center !important;
+        padding: 10px 20px !important;
     }
 
     .logo {
-        order: 1; /* always left */
+        order: 1 !important; /* always left */
+    }
+
+    .hamburger {
+        display: flex !important;
+        order: 2 !important;  /* always right */
+        margin-left: auto !important; /* forces it to the far right */
     }
 
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -260px; /* offscreen initially */
-        width: 260px;
-        height: 100%;
-        background: rgba(30,30,30,0.95);
-        padding-top: 60px;
-        transition: right 0.3s ease;
-        z-index: 999;
+        position: fixed !important;
+        top: 0 !important;
+        right: -260px !important;
+        width: 260px !important;
+        height: 100% !important;
+        background: rgba(30,30,30,0.95) !important;
+        padding-top: 60px !important;
+        transition: right 0.3s ease !important;
+        z-index: 999 !important;
     }
 
     .nav-links.active {
-        right: 0; /* slide in */
+        right: 0 !important;
     }
 
     .nav-links ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end; /* right-align links */
-        gap: 20px;
-        padding-right: 20px;
-        margin: 0;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-end !important; /* right-aligned */
+        gap: 20px !important;
+        padding-right: 20px !important;
+        margin: 0 !important;
     }
 
     .nav-links ul li a {
-        padding: 10px 0;
-        font-size: 16px;
+        padding: 10px 0 !important;
+        font-size: 16px !important;
     }
 }
+
+@media (max-width: 768px) {
+    .hamburger-container {
+        margin-left: auto !important;
+    }
+}
+
 
 
