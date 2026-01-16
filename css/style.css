@@ -824,31 +824,6 @@ footer {
     }
 }
 
-/* FIX: Make cuisine cards wider / more horizontal on mobile – no more thin bars */
-.cuisine-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-}
-
-.cuisine-card {
-    height: auto !important;               /* remove fixed height */
-    aspect-ratio: 4 / 3;                   /* wider landscape feel – try 3/2 or 5/4 if you want even wider */
-    min-height: 220px;                     /* minimum to avoid too flat */
-    border-radius: 22px;
-    background-size: cover !important;
-    background-position: center !important;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
-    transition: transform 0.3s ease;
-}
-
-.cuisine-card:hover {
-    transform: translateY(-8px);
-}
-
-/* Mobile adjustments */
 @media (max-width: 768px) {
     .cuisine-grid {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
