@@ -742,58 +742,136 @@ footer {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* FIX: Make value/feature cards wider + more horizontal on mobile */
+/* VALUES SECTION – Cleaned & fixed for mobile */
+.values-section {
+    padding: 80px 5%;
+    color: #fff;
+}
+
 .values-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-    gap: 20px !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .value-card {
-    width: 100% !important;
-    height: auto !important;
-    min-height: 320px !important;      /* controls overall height */
-    aspect-ratio: 3 / 4 !important;    /* wider portrait – change to 4/5 or 5/6 for even more horizontal feel */
-    border-radius: 16px !important;
-    overflow: hidden !important;
-    background-size: cover !important;
-    background-position: center !important;
-    padding: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-end !important;
-    box-sizing: border-box !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    min-height: 400px;
+    aspect-ratio: 3 / 4;          /* Adjust to 4/5 for more horizontal feel */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    transition: transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-card h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.value-card p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* MOBILE: Wider cards, horizontal proportions */
+@media (max-width: 900px) {
     .values-section {
-        padding: 50px 4% !important;   /* reduce padding to fit more comfortably */
+        padding: 60px 4%;
     }
 
     .values-grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
-        gap: 18px !important;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 25px;
     }
 
     .value-card {
-        min-height: 340px !important;
-        aspect-ratio: 4 / 5 !important;   /* ← more horizontal / less tall */
-        border-radius: 18px !important;
+        aspect-ratio: 4 / 5;      /* Makes them wider / less tall on phones */
+        min-height: 380px;
+        padding: 25px;
     }
 
     .value-card h3 {
-        font-size: 1.5rem !important;
+        font-size: 24px;
     }
 
     .value-card p {
-        font-size: 0.95rem !important;
+        font-size: 15px;
     }
 }
 
-/* Extra safety for very small screens */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
+    .values-grid {
+        grid-template-columns: 1fr;   /* 1 column on very small screens */
+    }
+
     .value-card {
-        aspect-ratio: 5 / 6 !important;   /* even wider feel if needed */
-        min-height: 360px !important;
+        aspect-ratio: 5 / 6;          /* Even more horizontal if needed */
+        min-height: 420px;
+    }
+}
+
+/* FIX: Make cuisine cards wider / more horizontal on mobile – no more thin bars */
+.cuisine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.cuisine-card {
+    height: auto !important;               /* remove fixed height */
+    aspect-ratio: 4 / 3;                   /* wider landscape feel – try 3/2 or 5/4 if you want even wider */
+    min-height: 220px;                     /* minimum to avoid too flat */
+    border-radius: 22px;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease;
+}
+
+.cuisine-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .cuisine-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .cuisine-card {
+        aspect-ratio: 3 / 2;               /* more horizontal on small screens */
+        min-height: 200px;
+    }
+
+    .cuisine-overlay h2 {
+        font-size: 1.5rem;
+    }
+
+    .cuisine-overlay p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cuisine-card {
+        aspect-ratio: 5 / 4;               /* even more horizontal if needed */
+        min-height: 180px;
     }
 }
