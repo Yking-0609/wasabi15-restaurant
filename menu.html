@@ -111,17 +111,11 @@
 </script>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  
-  // Optional: animate hamburger into X
-  hamburger.classList.toggle('open');
-});
+function toggleMenu() {
+  const nav = document.querySelector('.nav-links');
+  nav.classList.toggle('active');
+}
 </script>
-
 
 </body>
 </html>
