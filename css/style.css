@@ -697,29 +697,31 @@ html, body {
         display: flex;
     }
 
-    /* Hide nav-links by default */
     .nav-links {
-        position: fixed;
+        position: fixed;     /* fixed to viewport */
         top: 0;
-        right: -250px;      /* hide offscreen initially */
+        right: -250px;       /* hidden offscreen */
         width: 250px;
         height: 100%;
         background: rgba(30,30,30,0.95);
-        padding-top: 60px;  /* space from top */
+        padding-top: 60px;   /* space from top for logo */
         transition: right 0.3s ease;
         z-index: 999;
     }
 
-    /* Show nav when active */
+    /* Slide in when active */
     .nav-links.active {
-        right: 0;           /* slide in from right */
+        right: 0;            /* fully visible on right */
     }
 
+    /* Vertical stack aligned to right */
     .nav-links ul {
-        flex-direction: column; /* vertical stack */
+        display: flex;
+        flex-direction: column;
         gap: 20px;
-        text-align: right;      /* align links to right */
+        align-items: flex-end;   /* RIGHT-align links */
         padding-right: 20px;
+        margin: 0;
     }
 
     .nav-links ul li a {
