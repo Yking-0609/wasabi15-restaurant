@@ -630,7 +630,7 @@ footer {
     margin-top: 80px;
 }
 
-/* ===================== NAVBAR ===================== */
+/* ===== NAVBAR ===== */
 .navbar {
     display: flex;
     justify-content: space-between; /* logo left, hamburger right */
@@ -674,12 +674,12 @@ html, body {
     overflow-x: hidden;
 }
 
-/* Hamburger styling */
+/* Hamburger button */
 .hamburger {
     display: none;
     flex-direction: column;
-    cursor: pointer;
     gap: 5px;
+    cursor: pointer;
 }
 
 .hamburger span {
@@ -692,18 +692,24 @@ html, body {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-    /* Show hamburger */
-    .hamburger {
-        display: flex;
-        order: 2;             /* make it appear on right */
+    .navbar {
+        justify-content: space-between; /* logo left, hamburger right */
     }
 
-    /* nav-links initially hidden offscreen */
+    .hamburger {
+        display: flex;
+        order: 2; /* always right */
+    }
+
+    .logo {
+        order: 1; /* always left */
+    }
+
     .nav-links {
         position: fixed;
         top: 0;
-        right: -250px;
-        width: 250px;
+        right: -260px; /* offscreen initially */
+        width: 260px;
         height: 100%;
         background: rgba(30,30,30,0.95);
         padding-top: 60px;
@@ -712,27 +718,21 @@ html, body {
     }
 
     .nav-links.active {
-        right: 0;             /* slide in from right */
+        right: 0; /* slide in */
     }
 
-    /* Vertical stack, aligned right */
     .nav-links ul {
+        display: flex;
         flex-direction: column;
-        align-items: flex-end;  /* right-align links */
+        align-items: flex-end; /* right-align links */
         gap: 20px;
         padding-right: 20px;
         margin: 0;
     }
 
     .nav-links ul li a {
-        display: block;
         padding: 10px 0;
         font-size: 16px;
-    }
-
-    /* Keep logo on left */
-    .logo {
-        order: 1;
     }
 }
 
