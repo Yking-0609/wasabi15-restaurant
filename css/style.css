@@ -682,33 +682,51 @@ html, body {
     overflow-x: hidden;
 }
 
-/* ===== MOBILE / SMALL SCREENS ===== */
+
+/* Hamburger menu styling */
+.hamburger {
+  display: none; /* hide on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
 
-    .navbar {
-        flex-wrap: wrap; /* allow logo and links to wrap if needed */
-        padding: 10px 15px;
-    }
+  .nav-links {
+    width: 100%;
+    display: none; /* hide links by default */
+  }
 
-    .nav-links ul {
-        overflow-x: auto;                  /* scrollable if too many links */
-        -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-        gap: 15px;
-        max-width: 100%;
-        padding-bottom: 5px;
-    }
+  .nav-links.active {
+    display: block;
+    background: rgba(30, 30, 30, 0.95);
+    padding: 10px 0;
+  }
 
-    .nav-links ul::-webkit-scrollbar {
-        display: none; /* hide scrollbar */
-    }
+  .nav-links ul {
+    flex-direction: column; /* stack vertically when menu opens */
+    gap: 10px;
+    padding-left: 0;
+    text-align: center;
+  }
 
-    .nav-links ul li a {
-        padding: 6px 12px;
-        font-size: 14px;
-    }
+  .nav-links ul li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 16px;
+  }
 }
 
-/* Prevent body horizontal overflow */
-body, html {
-    overflow-x: hidden;
-}
