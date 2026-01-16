@@ -631,9 +631,7 @@ footer {
 }
 
 
-/* ===================== NAVBAR - RESPONSIVE & MODERN ===================== */
-
-/* Navbar general */
+/* ===================== NAVBAR ===================== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -693,7 +691,7 @@ html, body {
     border-radius: 2px;
 }
 
-/* MOBILE STYLES */
+/* ===================== MOBILE ===================== */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -701,11 +699,11 @@ html, body {
 
     .nav-links {
         width: 100%;
-        display: none; /* hide by default */
+        display: none; /* hidden by default */
     }
 
     .nav-links.active {
-        display: block; /* show when hamburger clicked */
+        display: block;
         background: rgba(30,30,30,0.95);
         padding: 10px 0;
     }
@@ -713,6 +711,7 @@ html, body {
     .nav-links ul {
         flex-direction: column; /* stack vertically */
         gap: 10px;
+        padding-left: 0;
         text-align: center;
     }
 
