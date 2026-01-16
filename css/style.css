@@ -730,3 +730,34 @@ html, body {
         font-size: 16px;
     }
 }
+
+/* ===== HORIZONTAL MENU SCROLL FOR MOBILE ===== */
+@media (max-width: 768px) {
+  .cuisine-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    padding: 10px;
+  }
+
+  .cuisine-grid::-webkit-scrollbar {
+    display: none; /* hide scroll bar */
+  }
+
+  .cuisine-card {
+    flex: 0 0 70%; /* each card takes 70% of mobile viewport */
+    max-width: 70%;
+    min-width: 200px;
+    height: 200px; /* adjust as needed */
+  }
+
+  .cuisine-overlay h2 {
+    font-size: 18px;
+  }
+
+  .cuisine-overlay p {
+    font-size: 14px;
+  }
+}
