@@ -18,33 +18,31 @@
 <body>
 
 
-<header class="navbar">
-  <!-- Logo left -->
-  <div class="logo">
-    <a href="index.html">
-      <img src="images/logo.png" alt="Wasabi15 Logo">
+<header class="header">
+  <div class="container">
+    <a href="index.html" class="logo">
+      <!-- Your logo image or text -->
+      <img src="images/logo.png" alt="Wasabi15" /> <!-- adjust path -->
+      <!-- OR just text: Wasabi15 -->
     </a>
+
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-
-  <!-- Hamburger right -->
-  <button class="hamburger" aria-label="Toggle menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- Navigation links -->
-  <nav class="nav-links">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
 </header>
-
 
 
 <!-- ===================== PAGE HEADER ===================== -->
@@ -106,15 +104,37 @@
         duration: 1000,
         once: true
     });
+
 </script>
 
 <script>
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
+  const header = document.querySelector('.header');
 
-hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    header.classList.toggle('menu-open'); // for optional overlay
+  });
+
+  // Close menu when clicking a link (good UX)
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      header.classList.remove('menu-open');
+    });
+  });
+
+  // Optional: close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      header.classList.remove('menu-open');
+    }
+  });
 </script>
 
 
