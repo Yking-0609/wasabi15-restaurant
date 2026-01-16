@@ -633,35 +633,31 @@ footer {
 
 /* ===================== NAVBAR - RESPONSIVE & MODERN ===================== */
 
-/* Navbar container */
+/* ===================== NAVBAR ===================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: rgba(30, 30, 30, 0.85); /* frosted glass look */
+    background: rgba(30, 30, 30, 0.85);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Logo */
 .navbar .logo img {
     height: 50px;
 }
 
-/* Navbar links */
 .nav-links ul {
     display: flex;
-    flex-direction: row;    /* horizontal by default */
     gap: 20px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* Navbar link items */
 .nav-links ul li a {
     display: block;
     padding: 8px 16px;
@@ -677,56 +673,53 @@ footer {
     background: rgba(255, 255, 255, 0.25);
 }
 
-/* Prevent horizontal scroll of body */
 html, body {
     overflow-x: hidden;
 }
 
-
-/* Hamburger menu styling */
+/* Hamburger */
 .hamburger {
-  display: none; /* hide on desktop */
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
 }
 
 .hamburger span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
 }
 
-/* Mobile styles */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
+    .hamburger {
+        display: flex;
+    }
 
-  .nav-links {
-    width: 100%;
-    display: none; /* hide links by default */
-  }
+    .nav-links {
+        width: 100%;
+        display: none; /* hidden by default */
+    }
 
-  .nav-links.active {
-    display: block;
-    background: rgba(30, 30, 30, 0.95);
-    padding: 10px 0;
-  }
+    .nav-links.active {
+        display: block;
+        background: rgba(30, 30, 30, 0.95);
+        padding: 10px 0;
+    }
 
-  .nav-links ul {
-    flex-direction: column; /* stack vertically when menu opens */
-    gap: 10px;
-    padding-left: 0;
-    text-align: center;
-  }
+    .nav-links ul {
+        flex-direction: column; /* stack vertically */
+        gap: 10px;
+        padding-left: 0;
+        text-align: center;
+    }
 
-  .nav-links ul li a {
-    display: block;
-    padding: 10px 0;
-    font-size: 16px;
-  }
+    .nav-links ul li a {
+        padding: 10px 0;
+        font-size: 16px;
+    }
 }
 
