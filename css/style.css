@@ -671,4 +671,45 @@ footer {
     }
 }
 
+.nav-links ul {
+    align-items: center;
+}
+
+
+/* ===== MOBILE NAVBAR FIX ===== */
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: row;
+        padding: 10px 15px;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: row;      /* 👈 force horizontal */
+        gap: 15px;
+        overflow-x: auto;         /* 👈 allows smooth horizontal scroll */
+        white-space: nowrap;
+    }
+
+    .nav-links ul::-webkit-scrollbar {
+        display: none;            /* hide scrollbar */
+    }
+
+    .nav-links ul li {
+        list-style: none;
+    }
+
+    .nav-links ul li a {
+        font-size: 14px;
+        padding: 6px 10px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links ul li a:hover {
+        background: rgba(255,255,255,0.15);
+    }
+}
+
 
