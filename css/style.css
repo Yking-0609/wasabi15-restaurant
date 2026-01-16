@@ -742,65 +742,62 @@ footer {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Fix thin vertical cards on mobile – make them wider & better proportioned */
-.values-section,
-.values-grid {
-    padding: 40px 5% !important;   /* more breathing room */
+/* FIX THIN TALL CARDS ON MOBILE – make wider + proper aspect ratio */
+.values-section {
+    padding: 60px 5% !important;   /* less top/bottom padding for better fit */
 }
 
 .values-grid {
-    display: grid !important;      /* switch to grid for better control */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    display: grid !important;      /* change from flex to grid for control */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
     gap: 25px !important;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.value-card {
-    height: auto !important;       /* remove any forced tall height */
-    min-height: 380px;             /* give decent height but not extreme */
-    aspect-ratio: 3 / 4;           /* or 4/5 – portrait but not ultra-thin */
-    border-radius: 16px;
-    overflow: hidden;
-    background-size: cover !important;
-    background-position: center !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 20px;
-    color: white;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-}
-
-/* Make sure text stays readable */
-.value-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 8px;
-}
-
-.value-card p {
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-/* Mobile-specific – ensure not too narrow */
-@media (max-width: 768px) {
+/* Override mobile stacking */
+@media (max-width: 900px) {
     .values-grid {
-        grid-template-columns: 1fr !important;   /* 1 column on very small phones */
-        gap: 30px;
+        flex-direction: unset !important;   /* kill the column force */
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+        gap: 20px;
     }
 
     .value-card {
-        min-height: 420px;             /* taller cards look better than thin lines */
-        aspect-ratio: 4 / 5;           /* wider than tall – adjust 3/4, 4/5, 5/6 as you like */
+        min-width: 260px !important;        /* prevent ultra-narrow */
+        height: auto !important;
+        min-height: 360px;                  /* decent height, not extreme */
+        aspect-ratio: 3 / 4;                /* portrait but not too tall/thin – try 4/5 or 5/6 if needed */
+        padding: 30px 20px !important;
         border-radius: 20px;
+        background-size: cover !important;
+        background-position: center !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: center;
+        color: white;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.8);
     }
 
     .value-card h3 {
-        font-size: 1.8rem;
+        font-size: 1.7rem !important;
+        margin-bottom: 10px;
+    }
+
+    .value-card p {
+        font-size: 1rem !important;
     }
 }
 
-@media (min-width: 500px) and (max-width: 900px) {
+/* For very small phones (extra safety) */
+@media (max-width: 500px) {
     .values-grid {
-        grid-template-columns: repeat(2, 1fr) !important;  /* 2 columns on medium phones */
+        grid-template-columns: 1fr !important;
+    }
+
+    .value-card {
+        min-height: 400px;
+        aspect-ratio: 4 / 5;
     }
 }
