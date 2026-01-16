@@ -742,72 +742,65 @@ footer {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Mobile: Horizontal full-width menu layout */
+/* Fix thin vertical cards on mobile – make them wider & better proportioned */
+.values-section,
+.values-grid {
+    padding: 40px 5% !important;   /* more breathing room */
+}
+
+.values-grid {
+    display: grid !important;      /* switch to grid for better control */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 25px !important;
+}
+
+.value-card {
+    height: auto !important;       /* remove any forced tall height */
+    min-height: 380px;             /* give decent height but not extreme */
+    aspect-ratio: 3 / 4;           /* or 4/5 – portrait but not ultra-thin */
+    border-radius: 16px;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* Make sure text stays readable */
+.value-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.value-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Mobile-specific – ensure not too narrow */
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    .values-grid {
+        grid-template-columns: 1fr !important;   /* 1 column on very small phones */
+        gap: 30px;
     }
 
-    .nav-links {
-        display: none;                    /* hidden until active */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: #fff;                 /* or rgba(255,255,255,0.98) for semi-transparent */
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        padding: 20px 10px;
-        z-index: 999;
+    .value-card {
+        min-height: 420px;             /* taller cards look better than thin lines */
+        aspect-ratio: 4 / 5;           /* wider than tall – adjust 3/4, 4/5, 5/6 as you like */
+        border-radius: 20px;
     }
 
-    .nav-links.active {
-        display: flex;
-        flex-direction: row;              /* ← horizontal row */
-        flex-wrap: wrap;                  /* wrap to next line if needed */
-        justify-content: center;          /* center items horizontally */
-        align-items: center;
-        gap: 20px 30px;                   /* space between items */
+    .value-card h3 {
+        font-size: 1.8rem;
     }
+}
 
-    .nav-links li {
-        flex: 0 1 auto;                   /* let items size naturally */
-        min-width: 120px;                 /* prevent too narrow on small screens */
-        text-align: center;
-    }
-
-    .nav-links a {
-        display: block;
-        font-size: 1.1rem;
-        padding: 12px 20px;
-        border-radius: 30px;
-        background: rgba(30,127,92,0.08); /* subtle bg using your --green */
-        transition: all 0.3s;
-        white-space: nowrap;
-    }
-
-    .nav-links a:hover {
-        background: var(--green);
-        color: white;
-    }
-
-    /* If you add images/icons to menu items later */
-    .nav-links img {
-        width: 60px;
-        height: 60px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-bottom: 8px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    /* Optional: Make navbar more compact so menu opens without scroll issues */
-    .navbar {
-        padding: 12px 5vw;
-    }
-
-    .logo img {
-        height: 48px;
+@media (min-width: 500px) and (max-width: 900px) {
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr) !important;  /* 2 columns on medium phones */
     }
 }
