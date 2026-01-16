@@ -713,21 +713,64 @@ html, body {
     .nav-links.active {
         right: 0;            /* fully visible on right */
     }
+}
 
-    /* Vertical stack aligned to right */
-    .nav-links ul {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-end;   /* RIGHT-align links */
-        padding-right: 20px;
-        margin: 0;
-    }
+/* MAKE NAV LINKS ALWAYS HORIZONTAL */
+.nav-links ul {
+    display: flex;
+    flex-direction: row;       /* row always */
+    flex-wrap: nowrap;         /* never wrap to next line */
+    justify-content: space-between;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;          /* allow horizontal scroll if tiny screen */
+    -webkit-overflow-scrolling: touch; /* better touch scrolling */
+}
 
+.nav-links ul li a {
+    white-space: nowrap;       /* prevent wrapping of text */
+    padding: 8px 12px;
+    font-size: 15px;
+}
+
+@media (max-width: 480px) {
+    /* optional: reduce padding slightly to fit small phones */
     .nav-links ul li a {
-        display: block;
-        padding: 10px 0;
-        font-size: 16px;
+        padding: 6px 10px;
+        font-size: 14px;
     }
+}
+
+/* ===== HORIZONTAL MENU SCROLL FOR MOBILE ===== */
+@media (max-width: 768px) {
+  .cuisine-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    padding: 10px;
+  }
+
+  .cuisine-grid::-webkit-scrollbar {
+    display: none; /* hide scroll bar */
+  }
+
+  .cuisine-card {
+    flex: 0 0 70%; /* each card takes 70% of mobile viewport */
+    max-width: 70%;
+    min-width: 200px;
+    height: 200px; /* adjust as needed */
+  }
+
+  .cuisine-overlay h2 {
+    font-size: 18px;
+  }
+
+  .cuisine-overlay p {
+    font-size: 14px;
+  }
 }
 
