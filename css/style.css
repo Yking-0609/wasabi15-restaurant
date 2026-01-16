@@ -691,31 +691,39 @@ html, body {
     border-radius: 2px;
 }
 
-/* ===================== MOBILE ===================== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
     }
 
+    /* Hide nav-links by default */
     .nav-links {
-        width: 100%;
-        display: none; /* hidden by default */
+        position: fixed;
+        top: 0;
+        right: -250px;      /* hide offscreen initially */
+        width: 250px;
+        height: 100%;
+        background: rgba(30,30,30,0.95);
+        padding-top: 60px;  /* space from top */
+        transition: right 0.3s ease;
+        z-index: 999;
     }
 
+    /* Show nav when active */
     .nav-links.active {
-        display: block;
-        background: rgba(30,30,30,0.95);
-        padding: 10px 0;
+        right: 0;           /* slide in from right */
     }
 
     .nav-links ul {
-        flex-direction: column; /* stack vertically */
-        gap: 10px;
-        padding-left: 0;
-        text-align: center;
+        flex-direction: column; /* vertical stack */
+        gap: 20px;
+        text-align: right;      /* align links to right */
+        padding-right: 20px;
     }
 
     .nav-links ul li a {
+        display: block;
         padding: 10px 0;
         font-size: 16px;
     }
