@@ -532,12 +532,6 @@ body {
     height: 55px;
 }
 
-.nav-links ul {
-    display: flex;
-    list-style: none;
-    gap: 35px;
-}
-
 .nav-links a {
     text-decoration: none;
     color: #222;
@@ -636,73 +630,31 @@ footer {
     margin-top: 80px;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 1024px) {
-    .cuisine-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-
-    .navbar {
-        padding: 15px 25px;
-    }
-
-    .nav-links ul {
-        gap: 18px;
-        font-size: 14px;
-    }
-
-    .menu-section {
-        padding: 60px 25px;
-    }
-
-    .cuisine-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .cuisine-card {
-        height: 240px;
-    }
-
-    .page-header h1 {
-        font-size: 34px;
-    }
-}
-
-.navbar {
-    background: rgba(30,30,30,0.85);
-    backdrop-filter: blur(10px);
-}
 
 
-
-/* ===== MOBILE HORIZONTAL NAVBAR ===== */
+/* ===== MOBILE NAVBAR FIX ===== */
 @media (max-width: 768px) {
-  
+
+  /* Navbar container */
   .navbar {
       display: flex;
-      flex-direction: row;     /* horizontal layout */
+      flex-direction: row !important;   /* horizontal */
       justify-content: space-between;
       align-items: center;
       padding: 10px 15px;
   }
 
-  .nav-links {
-      flex: 1;
-  }
-
+  /* Navigation links */
   .nav-links ul {
-      display: flex !important;        /* horizontal list */
-      flex-direction: row !important;  /* override vertical */
-      justify-content: flex-end;       /* push to right */
-      gap: 15px;
+      display: flex !important;        /* horizontal */
+      flex-direction: row !important;  /* force row on mobile */
+      justify-content: flex-end;
+      gap: 15px;                       /* space between links */
       list-style: none;
       margin: 0;
       padding: 0;
-      overflow-x: auto;                /* allows horizontal scroll if needed */
-      white-space: nowrap;
+      white-space: nowrap;             /* prevents wrapping */
+      overflow-x: auto;                /* scroll if too many links */
   }
 
   .nav-links ul li {
@@ -711,12 +663,13 @@ footer {
 
   .nav-links ul li a {
       display: block;
-      padding: 6px 12px;
+      padding: 8px 12px;
       border-radius: 20px;
+      background: rgba(255,255,255,0.1);
       text-align: center;
       transition: all 0.3s ease;
-      color: #fff; /* change to match your navbar */
-      background: rgba(255,255,255,0.1); /* light pill effect */
+      color: #fff;
+      white-space: nowrap;
   }
 
   .nav-links ul li a:hover {
