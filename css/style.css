@@ -644,35 +644,28 @@ footer {
       padding: 10px 15px;
   }
 
-  /* Navigation links */
   .nav-links ul {
-      display: flex !important;        /* horizontal */
-      flex-direction: row !important;  /* force row on mobile */
-      justify-content: flex-end;
-      gap: 15px;                       /* space between links */
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start;
+      gap: 15px;
       list-style: none;
       margin: 0;
       padding: 0;
-      white-space: nowrap;             /* prevents wrapping */
-      overflow-x: auto;                /* scroll if too many links */
+      white-space: nowrap;          /* prevent wrapping */
+      overflow-x: auto;             /* horizontal scroll if needed */
+      -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+      max-width: 100%;              /* never exceed viewport */
+      box-sizing: border-box;
   }
 
-  .nav-links ul li {
-      margin: 0;
+  .nav-links ul::-webkit-scrollbar {
+      display: none;               /* hide scrollbar */
   }
+}
 
-  .nav-links ul li a {
-      display: block;
-      padding: 8px 12px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.1);
-      text-align: center;
-      transition: all 0.3s ease;
-      color: #fff;
-      white-space: nowrap;
-  }
 
-  .nav-links ul li a:hover {
-      background: rgba(255,255,255,0.25);
-  }
+/* Prevent body horizontal overflow */
+body, html {
+    overflow-x: hidden;
 }
