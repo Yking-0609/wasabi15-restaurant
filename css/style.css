@@ -658,11 +658,12 @@ footer {
 .nav-links ul li a {
   display: block;
   padding: 8px 16px;
+  border-radius: 20px;
   background: rgba(255,255,255,0.1);
   color: #fff;
   text-decoration: none;
-  border-radius: 20px;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .nav-links ul li a:hover {
@@ -689,36 +690,35 @@ footer {
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
   .hamburger {
     display: flex;
   }
 
   /* Hide nav by default */
   .nav-links {
+    display: none; /* hidden by default */
     position: fixed;
-    top: 0;
-    right: -260px; /* hidden */
-    width: 260px;
-    height: 100%;
+    top: 50%;          /* center vertically */
+    left: 50%;         /* center horizontally */
+    transform: translate(-50%, -50%);
     background: rgba(30,30,30,0.95);
-    padding-top: 60px;
-    transition: right 0.3s ease;
+    padding: 20px 40px;
+    border-radius: 10px;
     z-index: 999;
+    text-align: center;
   }
 
   /* Show nav when active */
   .nav-links.active {
-    right: 0;
+    display: block;
   }
 
-  /* Vertical links, right-aligned */
   .nav-links ul {
     flex-direction: column;
-    align-items: flex-end;
     gap: 20px;
-    padding-right: 20px;
+    align-items: center; /* center links horizontally */
     margin: 0;
+    padding: 0;
   }
 
   .nav-links ul li a {
